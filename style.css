@@ -17,9 +17,14 @@ main {
     position: absolute;
     background-color: blue;
     bottom: 0;
-    transition: 2s;
+    transition: 0.3s;
+    border-radius: 2px;
 }
 
-.sort {
+.item-active {
+    background-color: red;
+}
+
+.btn {
     margin-top: 100px;
 }
