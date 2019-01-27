@@ -8,6 +8,7 @@ class Field {
         this._startPositionX = 0;
         this._itemWidth = 20;
         this._distanceBtwItems = 2;
+        this._reverse = false;
 
         this._sortItems = this._sortItems.bind(this);
 
@@ -36,10 +37,15 @@ class Field {
         let itemsToSort = [...this._field.children];
         let sortedItems = itemsToSort.sort(this._compareValues);
 
-       // this._field.innerHTML = '';
+        if(this._reverse) {
+            sortedItems = sortedItems.reverse();
+        }
+
         this._field.append(...sortedItems);
 
         setTimeout(this._setItemsPositions.bind(this), 100);
+
+        this._reverse = !this._reverse;
     }
 
     _compareValues(itemA, itemB) {
